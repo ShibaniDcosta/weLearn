@@ -7,8 +7,8 @@ This project aims to create a centralized online platform designed to store, man
 
 Features
 
-Content Management: Allows educators to upload, organize, and manage digital teaching materials.
-User-Friendly Interface: Designed for ease of use, enabling educators to navigate and operate the platform effortlessly.
-Task Automation: Automates repetitive tasks, saving time and increasing efficiency.
-Curriculum Streamlining: Provides tools for educators to structure and plan their curriculum effectively.
-Chat Feature: Enables real-time communication between instructors and students for collaboration and support.
+* Content Management: Allows educators to upload, organize, and manage digital teaching materials.
+* User-Friendly Interface: Designed for ease of use, enabling educators to navigate and operate the platform effortlessly.
+* Task Automation: Automates repetitive tasks, saving time and increasing efficiency.
+* Curriculum Streamlining: Provides tools for educators to structure and plan their curriculum effectively.
+* Chat Feature: Enables real-time communication between instructors and students for collaboration and support.
