@@ -1,0 +1,23 @@
+
+.btn{
+    width:80px;
+}
+
+.full-width {
+    width: 100%;
+  }
+
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .custom-label{
+      width:30%;
+      font-weight:bold;
+  }
+
+.mat-toolbar{
+  background-color:#3f51b5;
+  color: white;
+}

@@ -1,0 +1,57 @@
+<mat-toolbar >
+    <mat-toolbar-row>
+      <span>New Assignment </span>
+      <span class="spacer"></span>
+      <mat-icon fontSet="fas" [mat-dialog-close] fontIcon="fa-times"></mat-icon>
+  
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div  mat-dialog-content class="mt-2" style="margin:auto">
+    <label class="cust-grey">Note: * marked fields are mandatory</label>
+    
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>* Title</mat-label>
+            <input matInput placeholder="w-ally" [formControl]="assignmentTitleFormControl" [errorStateMatcher]="assignmentTitleMatcher">
+                <mat-error *ngIf="assignmentTitleFormControl.hasError('required')">
+                    Title is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+          
+    </div>
+
+
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>* Description</mat-label>
+            <textarea matInput placeholder="w-ally" [formControl]="descriptionFormControl" [errorStateMatcher]="descriptionMatcher"> </textarea>
+            <mat-error *ngIf="descriptionFormControl.hasError('required')">
+            Location is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>  
+    </div>
+
+    <div class="mb-2">
+        <span class="mr-2 mb-2">Choose a file</span>
+        <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+        <input hidden (change)="onFileSelected($event)" #fileInput type="file">
+    </div>
+    
+    <div *ngIf="selectedFile" class="file-name">{{selectedFile?.name}}</div>
+
+
+
+  </div>
+
+
+  <div mat-dialog-actions >
+  
+    <div class="spacer"></div>
+    
+      <button class="btn custom-back z-depth" [mat-dialog-close]>Skip</button>
+      <button class="btn btn-custom-primary trigger z-depth mr-2" [mat-dialog-close] (click)="submitForm()" cdkFocusInitial>Submit</button>
+
+  </div>

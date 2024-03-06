@@ -1,0 +1,54 @@
+<owl-carousel-o [options]="customOptions" (translated)="getData($event)">
+
+    <ng-container *ngFor="let slide of slides">
+      <ng-template carouselSlide [id]="slide.courseNumber">
+
+          <div class="row">
+          <div class="ml-5 mb-4">
+              <div class="rounded overflow-hidden mb-2 mr-5" (click)="getId(slide)">
+                  <img class="img-fluid" [src]="slide.courseLink" alt="">
+                  <div class="bg-secondary p-4">
+                      <div class="d-flex justify-content-between mb-3">
+                          <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25 Students</small>
+                          <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>
+                      </div>
+                      <div class="h5" href="">{{slide.courseName}}</div>
+                      <div class="h5" href="">Professor {{slide.courseInstructor}}</div>
+
+                      <div class="border-top mt-4 pt-4">
+                          <div class="d-flex justify-content-between">
+                              <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                              <h5 class="m-0">$99</h5>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+
+          <!-- <mat-card class="example-card ml-5">
+            
+            <img mat-card-image [src]="slide.courseLink" alt="">
+            <mat-card-header class="mt-2">
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{slide.courseName}}</mat-card-title>
+              <mat-card-subtitle>Professor {{slide.courseInstructor}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+                {{slide.courseDescription}}
+                <!-- {{slide.id}} Description :The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting. 
+              </p>
+            </mat-card-content>
+            
+            <mat-card-actions>
+              
+              <button mat-button routerLink="/login">ENROLL</button>
+            </mat-card-actions>
+          </mat-card> -->
+      </ng-template>
+    </ng-container>
+
+</owl-carousel-o>

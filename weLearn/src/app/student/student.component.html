@@ -1,0 +1,45 @@
+
+<div class="container">
+    <div style.background>
+
+    <div class="banner">
+    <!-- <img src="assets/images/banner.jpg"> -->
+        <mat-card class="card">
+            <mat-card-content>
+           
+                <b> New to weLearn? Lucky you.</b>
+                <div>Courses start at $14.99. Get your new-student offer before it expires.</div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div style="font-size: 15px;">
+        <div class="row">
+        <div class="spacer"></div>
+        <mat-form-field >
+            <mat-label class="d-flex justify-content-between">Search </mat-label>
+            <input matInput (keyup)="search($event)" placeholder="Course Name" #input>
+            <mat-icon matSuffix><i class="fas fa-search"></i></mat-icon>
+        </mat-form-field>
+        </div>
+    </div>
+
+    <div *ngIf="res">
+        <div class ="mt-5 mb-2 ml-5 ft"> <b> Search Results </b> </div>
+        <app-carousel [slides] = "searchResult"></app-carousel>
+    </div>   
+    
+
+    <div *ngIf="show " class ="mt-5 mb-2 ml-5 ft"> <b> My Learning </b> </div>
+    <app-carousel [slides] = "learning" [enrolled]="true"></app-carousel>
+
+    <div class ="mt-2 mb-2 ml-5 ft"> <b> What next </b> </div>
+    <app-carousel [slides] = "wNext" [enrolled]="false"></app-carousel>
+
+    <div class ="mt-2 mb-2 ml-5 ft"> <b> Recommended </b>  </div>
+    <app-carousel [slides] = "recomm" [enrolled]="false"></app-carousel>
+
+    
+    
+
+</div>

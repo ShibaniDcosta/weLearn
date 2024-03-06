@@ -1,0 +1,60 @@
+
+<div class = "main">
+  <mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+      <mat-form-field>
+        <input matInput name="name" ngModel type="text" placeholder="Name" #nameInput="ngModel" required text>
+        <mat-error *ngIf="emailInput.invalid">Please enter a valid name.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
+        <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
+        <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="id" ngModel type="text" placeholder="ID" #idInput="ngModel" required text>
+        <mat-error *ngIf="idInput.invalid">Please enter a valid ID.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select [(ngModel)]="selectedRole" placeholder="Role"  name="role" required>
+          <mat-option *ngFor="let role of roles" [value]="role.value">
+            {{role.viewRole}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      
+
+      <div *ngIf="selectedRole == 'STUDENT'">
+        <mat-form-field>
+          <input matInput name="major" ngModel type="text" placeholder="Major" #majorInput="ngModel" required text>
+          <mat-error *ngIf="majorInput.invalid">Please enter a valid major.</mat-error>
+        </mat-form-field>
+
+          
+      </div>
+      <div *ngIf="selectedRole == 'INSTRUCTOR'">
+        <mat-form-field>
+          <input matInput name="dept" ngModel type="text" placeholder="Department" #deptInput="ngModel" required text>
+          <mat-error *ngIf="deptInput.invalid">Please enter a valid major.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput name="desc" ngModel type="text" placeholder="About Yourself" #descInput="ngModel" ></textarea>
+          <mat-error *ngIf="descInput.invalid">Please enter a valid ID.</mat-error>
+        </mat-form-field>
+        
+      </div>
+
+      <div class="d-flex align-items-center justify-content-center mt-3">
+        <button class="btn btn-custom-primary" mat-raised-button color="accent" type="submit" *ngIf="!isLoading">Signup</button>
+      </div>
+<!-- 
+      <button mat-raised-button color="accent" type="submit" *ngIf="!isLoading">Signup</button> -->
+    </form>
+  </mat-card>
+</div>

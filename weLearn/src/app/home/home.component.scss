@@ -1,0 +1,30 @@
+
+.hero{
+    // background-image: url('/assets/images/greenPen.jpg') !important;
+    background-size: cover;
+    background-position: center center;
+}
+
+
+.example-card {
+    max-width: 300px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .mat-card-image {
+
+    margin: 0
+
+}
+
+.rounded{
+  background: black !important;
+}
+
+.title{
+  color:#6e6e73  !important;
+}

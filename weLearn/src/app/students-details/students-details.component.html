@@ -1,0 +1,200 @@
+
+    
+
+    <div class = "container-fluid py-2 ">
+
+        <div class="p-3 mb-2 bg text-white">
+            <div class="row align-items-center">
+                
+                <div class="col-lg-5 title text-uppercase" >
+                    <span> <i class="fas fa-arrow-circle-left mr-4 " (click)="goBack()"></i></span>
+
+                    {{course.courseName}}
+                </div>
+            </div>
+            <!-- About Start -->
+    <div class="container-fluid bg">
+    <div class="container-fluid ">
+        <div class="container py-5 ">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <img class="img-fluid rounded mb-4 mb-lg-0 img" [src]="course.courseLink" alt="">
+                </div>
+                <div class="col-lg-7">
+                    <div class="text-left mb-4">
+                        <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">About The Course</h5>
+                    </div>
+                    <p>{{course.courseDescription}}
+                    </p>
+                    <div class="what-you-will-learn--what-will-you-learn--1nBIT">
+
+                        <div> What will you be Learning? </div>
+                        <div class="col-12 ml-3 mt-2">
+                            <div class="row table">
+
+                                <div *ngFor='let skill of course.skills' class="col-6" style="border-bottom: 0.2px dotted;padding:1%">
+                                    {{skill}} 
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                    
+                    <div *ngIf="userIsAuthenticated">
+                        <div  *ngIf = "!enrolled" class="col-sm"><button class="btn btn-custom-primary  z-depth mr-2"  (click)="enroll()" >Enroll</button></div>
+                        <div  *ngIf = "enrolled" class="col-sm"><button class="btn btn-custom-primary  z-depth mr-2"  (click)="enroll()" disabled>Enrolled</button></div>
+
+                        <div  *ngIf = "enrolled" class="col-sm mt-2"><div class="btn btn-custom-primary  z-depth mr-2" >Grade: {{grade}}</div></div>
+                    </div>
+
+                    <div *ngIf="!userIsAuthenticated">
+                        <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Sign Up to get enrolled</h5>
+                        <div class="col-sm"><button class="btn btn-custom-primary  z-depth mr-2"  routerLink="/signup" >Sign Up</button></div>
+
+
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+    
+    
+        </div>
+
+
+    </div>
+    
+    <div class="marginAlignment">
+        <h2>Requirements</h2>
+        {{course.requirements}}
+        <ul>
+            <li> {{course.requirements}} </li>
+            <li>
+                Basic knowledge on computers is required. Basic knowledge on any one programming language is preferable.
+            </li>
+            <li>
+                No special software required
+            </li>    
+        </ul>
+        <h2>Description</h2>
+        <div class="justifyDescription">{{course.courseDescription}}
+            </div>
+
+
+        <h2 class="mt-5">Assignments </h2>
+        <div *ngIf="assignmentsList?.length == 0 "> Assignments not posted yet !!</div>
+        <mat-accordion  *ngFor="let assignment of assignmentsList">
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{assignment.title}}
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                  Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                </mat-panel-description> -->
+              </mat-expansion-panel-header>
+              <p>{{assignment.description}}</p>
+              <button class="btn btn-custom-secondary z-depth" (click)='download(assignment.filePath)'>Download Assignemnt</button>
+              <!-- <a href=assignment.filePath download (click)='download(assignment.filePath)'>Download</a> -->
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <div *ngIf="userIsAuthenticated">
+            <h2 class="mt-5">Submit your Assignments </h2>
+            <ngx-dropzone (change)="onSelect($event)">
+                <ngx-dropzone-label>Drop your assignment!</ngx-dropzone-label>
+                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                </ngx-dropzone-preview>
+            </ngx-dropzone>
+
+
+            <div class="d-flex align-items-center justify-content-center mt-2">
+                <div  class=""><button class="btn btn-custom-primary  z-depth mr-2"  (click)="submitAssignement()" >Submit</button></div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Happy Learning</h5>
+                <h1>Thanks for visiting our website</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="owl-carousel testimonial-carousel">
+                        <div class="text-center">
+                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+                            <h4 class="font-weight-normal mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</h4>
+                            <img class="img-fluid mx-auto mb-3" src="img/testimonial-1.jpg" alt="">
+                            <h5 class="m-0">Client Name</h5>
+                            <span>Profession</span>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+                            <h4 class="font-weight-normal mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</h4>
+                            <img class="img-fluid mx-auto mb-3" src="img/testimonial-2.jpg" alt="">
+                            <h5 class="m-0">Client Name</h5>
+                            <span>Profession</span>
+                        </div>
+                        <div class="text-center">
+                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
+                            <h4 class="font-weight-normal mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</h4>
+                            <img class="img-fluid mx-auto mb-3" src="img/testimonial-3.jpg" alt="">
+                            <h5 class="m-0">Client Name</h5>
+                            <span>Profession</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white py-5 px-sm-3 px-lg-5" style="margin-top: 90px;">
+        <div class="row pt-5">
+            <div class="col-lg-7 col-md-12">
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <h5 class="text-primary text-uppercase mb-4" style="letter-spacing: 5px;">Get In Touch</h5>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>3230 E, Bloomington, USA</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+                        <p><i class="fa fa-envelope mr-2"></i>weLearn@iu.edu</p>
+                        <div class="d-flex justify-content-start mt-4">
+                            <a class="btn btn-outline-light btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-5">
+                        <h5 class="text-primary text-uppercase mb-4" style="letter-spacing: 5px;">Our Courses</h5>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Web Design</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Apps Design</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Marketing</a>
+                            <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Research</a>
+                            <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>SEO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12 mb-5">
+                <h5 class="text-primary text-uppercase mb-4" style="letter-spacing: 5px;">About Us</h5>
+                <p> This webiste is developed and developed for our Software engineering application and is based on Learning management theme. </p>
+            </div>
+        </div>
+    </div>
+    

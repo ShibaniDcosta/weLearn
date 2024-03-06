@@ -1,0 +1,97 @@
+<mat-toolbar >
+    <mat-toolbar-row>
+      <span>{{crud}} {{type}} </span>
+      <span class="spacer"></span>
+      <mat-icon fontSet="fas" [mat-dialog-close] fontIcon="fa-times"></mat-icon>
+  
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div *ngIf="crud != 'Details'" mat-dialog-content class="mt-2" style="margin:auto">
+    <label class="cust-grey">Note: * marked fields are mandatory</label>
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>* Student ID</mat-label>
+            <input matInput placeholder="w-ally" [formControl]="studentIdFormControl" [errorStateMatcher]="studentIdMatcher">
+                <mat-error *ngIf="studentIdFormControl.hasError('required')">
+                    Student ID is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+          
+    </div>
+    
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>* Student Name</mat-label>
+            <input matInput placeholder="w-ally" [formControl]="studentNameFormControl" [errorStateMatcher]="studentNameMatcher">
+                <mat-error *ngIf="studentNameFormControl.hasError('required')">
+                    Student Name is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+          
+    </div>
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>* Student Email</mat-label>
+            <input matInput placeholder="example@gmail.com" [formControl]="studentEmailFormControl" [errorStateMatcher]="studentEmailMatcher"> 
+                <mat-error *ngIf="studentEmailFormControl.hasError('required')">
+                    Student Email is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+          
+    </div>
+
+    
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>* Student Major</mat-label>
+            <input matInput placeholder="example@gmail.com" [formControl]="studentMajorFormControl" [errorStateMatcher]="studentMajorMatcher"> 
+                <mat-error *ngIf="studentMajorFormControl.hasError('required')">
+                    Student Major is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+          
+    </div>
+
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label> Grade </mat-label>
+            <input matInput placeholder="" [formControl]="gradeFormControl" > 
+          </mat-form-field>
+          
+    </div>
+
+
+
+  </div>
+
+  <div *ngIf="crud == 'Details'" mat-dialog-content class="mt-2" style="margin:auto">
+
+
+
+    <h3><b>Student ID : </b>{{data.studentId}}</h3>
+
+    <h3><b>Student Name : </b>{{data.studentName}}</h3>
+
+    <h3><b>Student Major : </b>{{data.studentMajor}}</h3>
+
+    <h3><b>Email : </b>{{data.studentEmail}}</h3>
+
+    <h3><b>Grade : </b>{{data.grade}}</h3>
+
+
+  </div>
+
+  <div mat-dialog-actions >
+  
+    <div class="spacer"></div>
+    <div *ngIf="crud != 'Details'">
+      <button class="btn custom-back z-depth" [mat-dialog-close]>Skip</button>
+      <button class="btn btn-custom-primary trigger z-depth mr-2" [mat-dialog-close] (click)="submitForm()" cdkFocusInitial>Submit</button>
+    </div>
+    
+  </div>

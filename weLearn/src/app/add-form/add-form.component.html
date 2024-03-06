@@ -1,0 +1,91 @@
+<mat-toolbar >
+    <mat-toolbar-row>
+      <span>{{crud}} {{type}} </span>
+      <span class="spacer"></span>
+      <mat-icon fontSet="fas" [mat-dialog-close] fontIcon="fa-times"></mat-icon>
+  
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  
+
+  <div *ngIf="crud != 'Details'" mat-dialog-content class="mt-2" style="margin:auto">
+    <label class="cust-grey">Note: * marked fields are mandatory</label>
+
+
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>* Instructor ID</mat-label>
+            <input matInput placeholder="w-ally" [formControl]="instructorIdFormControl" [errorStateMatcher]="instructorIdMatcher">
+                <mat-error *ngIf="instructorIdFormControl.hasError('required')">
+              Instructor ID is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+          
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+          <mat-label>* Instructor Name</mat-label>
+          <input matInput placeholder="w-ally" [formControl]="instructorNameFormControl" [errorStateMatcher]="instructorNameMatcher">
+              <mat-error *ngIf="instructorNameFormControl.hasError('required')">
+                Instructor Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        
+  </div>
+
+
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+          <mat-label>* Instructor Email</mat-label>
+          <textarea matInput placeholder="YYYY-MM-DD" [formControl]="instructorEmailFormControl" [errorStateMatcher]="instructorEmailMatcher"> </textarea>
+            <mat-error *ngIf="instructorEmailFormControl.hasError('required')">
+              Instructor Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        
+  </div>
+
+
+  <div>
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>* Instructor Department</mat-label>
+        <input matInput placeholder="w-ally" [formControl]="departmentFormControl" [errorStateMatcher]="departmentMatcher">
+            <mat-error *ngIf="departmentFormControl.hasError('required')">
+              Instructor Department is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>
+      
+</div>
+
+
+
+  </div>
+
+  <div *ngIf="crud == 'Details'" mat-dialog-content class="mt-2" style="margin:auto">
+    
+
+    <h3><b>Instructor Id : </b>{{data.InstructorId}}</h3>
+
+    <h3><b>Instructor Name : </b>{{data.InstructorName}}</h3>
+
+    <h3><b>About : </b>{{data.About}}</h3>
+
+    <h3><b>Instructor Email : </b>{{data.InstructorEmail}}</h3>
+
+    <h3><b>Department: </b>{{data.Department}}</h3>
+
+
+  </div>
+
+  <div mat-dialog-actions >
+  
+    <div class="spacer"></div>
+    <div *ngIf="crud != 'Details'">
+      <button class="btn custom-back z-depth" [mat-dialog-close]>Skip</button>
+      <button class="btn btn-custom-primary trigger z-depth mr-2" [mat-dialog-close] (click)="submitForm()" cdkFocusInitial>Submit</button>
+    </div>
+    
+  </div>

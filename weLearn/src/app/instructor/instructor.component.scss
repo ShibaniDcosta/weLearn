@@ -1,0 +1,108 @@
+
+table {
+    width: 100%;
+  }
+  
+.mat-form-field {
+font-size: 14px;
+width: 100%;
+}
+
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: auto;
+  }
+  
+  td, th {
+    width: auto;
+  }
+
+.btn-info{
+  border-radius: 50rem !important;
+  /* border:2px solid #B4B4B4;
+  background-color:#FFFFFF;
+  color:#B4B4B4; */
+}
+
+.fa-eye:hover {
+  color:#7a1705;
+  cursor: pointer;
+}
+
+.fa-pencil-alt:hover{
+  color:#7a1705;
+  cursor: pointer;
+}
+
+.fa-trash-alt:hover,.fa-arrow-circle-left:hover{
+  color:#7a1705;
+  cursor: pointer;
+}
+
+.btn-cust{
+  border-radius: 50rem !important;
+  border:2px solid #B4B4B4;
+  background-color:#FFFFFF;
+  color:#B4B4B4;
+  width:108px;
+  margin-right: 20px;
+}
+
+
+.fa-arrow-circle-left{
+  font-size:30px;
+}
+
+.eye:hover{
+  color:#7a1705;
+  cursor: pointer;
+}
+
+:host ::ng-deep .mat-form-field{
+   width:auto !important;
+}
+
+
+.good{
+  color:#0CC20C;
+}
+
+ .bad  {   
+  color:#CB3A3A;   
+}
+
+ .avg  {   
+  color: blueviolet;   
+}
+
+
+.smalldot{
+  height: 8px;
+  width: 8px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+
+}
+
+
+.dot{
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+
+}
+
+
+
+
+.weightage-color{
+  color:#B4B4B4
+}

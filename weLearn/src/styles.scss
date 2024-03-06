@@ -1,0 +1,293 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$weLearn-primary: mat.define-palette(mat.$indigo-palette);
+$weLearn-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$weLearn-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$weLearn-theme: mat.define-light-theme((
+  color: (
+    primary: $weLearn-primary,
+    accent: $weLearn-accent,
+    warn: $weLearn-warn,
+  )
+));
+
+$weLearn-theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $weLearn-primary,
+    accent: $weLearn-accent,
+    warn: $weLearn-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+// @include mat.all-component-themes($weLearn-theme);
+
+/* You can add global styles to this file, and also import other style files  #F1F1F1*/
+
+
+
+html, body { overflow-x: hidden; }
+body { margin: 0; 
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #6C6A74;
+  text-align: left;
+  background-color: #fff;}
+
+
+
+
+.theme-light{
+  @include mat.all-component-themes($weLearn-theme);
+}
+
+.theme-dark{
+  @include mat.all-component-themes($weLearn-theme-dark);
+}
+
+.owl-prev{
+  left: 8px;
+  transform: translate(-50%,-50%);
+}
+
+.owl-next{
+  right:-68px;
+  transform: translate(-50%,-50%);
+}
+
+.owl-next i, .owl-prev i{
+  font-size: 24px;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+}
+
+.owl-next,.owl-prev{
+  background:rgb(158 158 158 / 28%) !important;
+  color: #222 !important;
+  height: 60px !important;
+  width: 60px !important;
+  border-radius: 50% !important;
+  position: absolute;
+  top: 50%;
+}
+
+
+.overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  display:block;
+}
+
+#loader{
+  position: absolute;
+top: 50%;
+left: 50%;
+font-size: 50px;
+color: white;
+transform: translate(-50%,-50%);
+-ms-transform: translate(-50%,-50%);
+}
+
+.custLoader{
+position: absolute;
+top: 50%;
+left: 50%;
+font-size: 50px;
+color: white;
+transform: translate(-50%,-50%);
+-ms-transform: translate(-50%,-50%);
+}
+
+/* .mat-progress-spinner circle, .mat-spinner circle {
+stroke:#7a1705;
+} */
+
+.mat-progress-bar{
+  width:75% !important;
+  height:11px !important;
+
+}
+
+.myapp-no-padding-dialog .mat-dialog-container {
+padding: 0;
+border-radius: 20px;
+/* overflow-y: hidden !important;*/
+overflow-x: hidden !important; 
+/* height: 250px;
+width: 250px; */
+}
+
+.mat-snack-bar-container{
+padding:0 !important;
+
+background:none; 
+box-shadow:none;
+}
+
+
+.file-name{
+  border-width: 1px;
+}
+
+.btn-custom-primary {
+color: #fff !important;
+background-color: #3f51b5 !important;
+border-color: #3f51b5 !important;
+box-shadow: none;
+outline: none;
+border-radius: 50rem !important;
+}
+
+.btn-custom-primary:hover{
+color: #fff;
+}
+
+.custom-back{
+border-radius: 20rem !important;
+border:2px solid #B4B4B4 !important;
+background-color:#FFFFFF !important;
+color:#B4B4B4 !important;
+width:108px;
+margin-right: 20px;
+}
+.custom-back:hover{
+color:#B4B4B4;
+}
+
+/* ---scroll bar changes----*/
+
+i{
+color: #8D8D8D;
+}
+
+::-webkit-scrollbar {
+width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+-webkit-border-radius: 10px;
+border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+-webkit-border-radius: 10px;
+border-radius: 10px;
+background: #E1DCEB; 
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+background:#E1DCEB; 
+}
+
+/* .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+background-color: #7a1705;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+border-color: #7a1705;
+} */
+
+.mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label {
+background-color: #7a1705;
+}
+
+.mat-accent .mat-slider-track-fill{
+background-color: #B89EE6;
+}
+
+.card{
+background:#FFFFFF;
+box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.cust-black{
+color:#3D3D3D
+}
+
+.cust-grey{
+color:#8D8D8D
+}
+
+.black{
+color:#4A4A4A
+}
+
+.raised-div{
+padding: 15px;
+margin-bottom: 20px;
+box-shadow: 0 1px 5px 1px #ccc;
+background:#FFFFFF;
+overflow: auto;
+border-radius: 3px #D6D6D6;
+
+}
+
+.spacer{
+flex: 1 1 auto;
+}
+
+
+.dot {
+height: 15px;
+width: 15px;
+background-color: #bbb;
+border-radius: 50%;
+display: inline-block;
+}
+
+
+
+
+.pointer{
+cursor:pointer;
+}
+
+.z-depth:hover {
+box-shadow: 0 8px 8px 8px rgba(0,0,0,.2), 0 8px 8px 0 rgba(0,0,0,.14), 0 8px 8px 0 rgba(0,0,0,.12) !important;
+transform: translate3d(0,0,0);
+transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+cursor: pointer;
+}
+
+.z-depth:hover .header{
+color:#7a1705;
+}
+
+

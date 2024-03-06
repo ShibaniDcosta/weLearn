@@ -1,0 +1,96 @@
+
+
+<mat-toolbar >
+    <mat-toolbar-row>
+      <span>Not using </span>
+      <span class="spacer"></span>
+      <mat-icon fontSet="fas" [mat-dialog-close] fontIcon="fa-times"></mat-icon>
+  
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div *ngIf="crud != 'Details'" mat-dialog-content class="mt-2" style="margin:auto">
+    <label class="cust-grey">Note: * marked fields are mandatory</label>
+    
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>* Course Number</mat-label>
+            <input matInput placeholder="w-ally" [formControl]="courseNumberFormControl" [errorStateMatcher]="courseNumberMatcher">
+                <mat-error *ngIf="courseNumberFormControl.hasError('required')">
+                    Course Number is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+          
+    </div>
+    
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>* Course Name</mat-label>
+            <input matInput placeholder="w-ally" [formControl]="courseNameFormControl" [errorStateMatcher]="courseNameMatcher">
+                <mat-error *ngIf="courseNameFormControl.hasError('required')">
+                    Course Name is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+          
+    </div>
+
+    <div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>* About the Course</mat-label>
+            <textarea matInput placeholder="w-ally" [formControl]="aboutCourseFormControl" [errorStateMatcher]="aboutCourseMatcher"> </textarea>
+                <mat-error *ngIf="aboutCourseFormControl.hasError('required')">
+                    About the Course is <strong>required</strong>
+              </mat-error>
+          </mat-form-field>
+          
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" class="full-width">
+          <mat-label>* Skills taught</mat-label>
+          <textarea matInput placeholder="min 6 skills" [formControl]="skillsFormControl" [errorStateMatcher]="skillsMatcher"> </textarea>
+              <mat-error *ngIf="skillsFormControl.hasError('required')">
+                Skills taught is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        
+  </div>
+
+
+
+  <div>
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>* Requirements</mat-label>
+        <textarea matInput placeholder="w-ally" [formControl]="requirementsFormControl" [errorStateMatcher]="requirementsMatcher"> </textarea>
+        <mat-error *ngIf="requirementsFormControl.hasError('required')">
+          Location is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>
+      
+ </div>
+
+ <div>
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>* Description</mat-label>
+        <textarea matInput placeholder="w-ally" [formControl]="descriptionFormControl" [errorStateMatcher]="descriptionMatcher"> </textarea>
+        <mat-error *ngIf="descriptionFormControl.hasError('required')">
+          Location is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>  
+ </div>
+
+  </div>
+
+
+  <div mat-dialog-actions >
+  
+    <div class="spacer"></div>
+    <div *ngIf="crud != 'Details'">
+      <button class="btn custom-back z-depth" [mat-dialog-close]>Skip</button>
+      <button class="btn btn-custom-primary trigger z-depth mr-2" [mat-dialog-close] (click)="submitForm()" cdkFocusInitial>Submit</button>
+    </div>
+    
+  </div>
+
